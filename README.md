@@ -15,3 +15,7 @@ hello
 - tsk: the task-runner used. install with `brew install notnmeyer/tsk/tsk`.
   - technically optional. you can run `tsk/run` directly if you prefer.
 - nix: `flake.nix` contains the kotlin and jvm dependencies. you don't need to use nix for these and can use it as a reference for what to install with your package manager of choice if you prefer.
+
+## configuring ktfmt in your editor
+
+if your editor requires manual configuration, you most likely will need `ktfmt` to emit the linted code on stdout rather than updating the file in place. configuring your editor to run `ktfmt -` should get you there.
