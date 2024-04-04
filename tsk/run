@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+#
+# run
+#
+# executes a single kotlin file like a more fun language would
+# usage: run <input.kt> [some.jar] [some-dir]
+#
+
+if [ -z "$args" ]; then
+  echo "You must provide an input file. See $0 for specific usage."
+  exit 1
+fi
+
+# convert args to an array
+read -r -a args <<< "$args"
+
+input=${args[0]:-main.kt}
+jar=${args[1]-run.jar}
+dir=${args[2]-$(mktemp -d)}
+
+kotlinc "$input" -include-runtime -d "$dir/$jar"
+kotlin "$dir/$jar"

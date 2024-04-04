@@ -1,0 +1,4 @@
+[tasks.run]
+env = {
+  args = "{{.CLI_ARGS}}"
+}
